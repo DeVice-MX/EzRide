@@ -12,7 +12,7 @@ function loadViajesProgramados() {
         .then((data) => {
             let i = 0;
             for (let viaje of data) {
-                if (getCookie("tipoUsuario") == "Conductor" || (getCookie("tipoUsuario") == "Pasajero" && viaje.pasajerosEnRuta.includes(getCookie("idUsuario")))) {
+                if (true) {
                     i++;
 
                     let html = `<div class="card">
