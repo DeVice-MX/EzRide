@@ -10,7 +10,7 @@ function getViaje(idViaje){
 
 async function getPasajerosViaje(idViaje){
     let viaje = await REQUEST(`${routeApi}Viaje/${idViaje}`);
-    let pasajerosEnRuta = viaje.pasajeroEnRuta.map(x=> x.idPasajero);
+    let pasajerosEnRuta = viaje.pasajerosEnRuta.map(x=> x.idPasajero);
     let usuarios = await REQUEST(`${routeApi}Usuario/`);
     let pasajeros = usuarios.filter(x=> pasajerosEnRuta.includes(x.id));
     return pasajeros;
@@ -128,4 +128,13 @@ async function aceptarPasajeroARuta(jParams){
         tarifa : viaje.tarifa
     };
     return REQUEST(`${routeApi}Viaje/${jParams.idViaje}`,'PUT',editJson);
+}
+
+function saveAgendaViaje(jParams){
+    return REQUEST(`${routeApi}AgendaViaje`,'POST',jParams);
+}
+
+async function getViajeCoordinates(jParams){
+    let viajes = await REQUEST(`${routeApi}Viaje`);
+    
 }
