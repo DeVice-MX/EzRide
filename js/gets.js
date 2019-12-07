@@ -8,6 +8,10 @@ function getViaje(idViaje) {
     return REQUEST(`${routeApi}Viaje/${idViaje}`);
 }
 
+function getUsuario(jParams) {
+    return REQUEST(`${routeApi}Usuario?nombreUsuario=${jParams.nombreUsuario}&contrasena=${jParams.contrasena}`);
+}
+
 async function getPasajerosViaje(idViaje) {
     let viaje = await REQUEST(`${routeApi}Viaje/${idViaje}`);
     let pasajerosEnRuta = viaje.pasajerosEnRuta.map(x=> x.idPasajero);

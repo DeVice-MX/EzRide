@@ -42,3 +42,15 @@ function getCookie(cname) {
     }
     return "";
 }
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+});

@@ -1,38 +1,42 @@
-
 $(function () {
-
-
-
-});
-
-const Toast = Swal.mixin({
-    toast: true,
-    position: 'bottom',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    onOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-})
-
-$(document).ready(function () {
     var form = $("#login");
-    form.validate();
+
+    form.validate({
+        lang: 'es'  // or whatever language option you have.
+    });
+
     $("#btn-submitLogin").click(function () {
         if (form.valid()) {
-            //submit
-            Toast.fire({
-                icon: 'success',
-                title: 'Correct Login'
-            })
-        }
-        else {
-            Toast.fire({
-                icon: 'error',
-                title: 'Incorrect Login'
-            })
+            let jParams = {
+                nombreUsuario: $("#name").val().replace(" ", "+"),
+                contrasena: $("#password").val()
+            };
+
+            getUsuario(jParams).then((usuario) => {
+                if (usuario.length > 0){
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Inicio de sesión exitoso'
+                    });
+                    usuario = usuario[0];
+
+                    setCookie("idUsuario",usuario.id);
+
+                    if(usuario.tipo == "Conductor"){
+                        setCookie("tipoUsuario","Conductor");
+                        window.location="/html/perfilConductor.html";
+                    }
+                    else{
+                        setCookie("tipoUsuario","Pasajero");
+                        window.location="/html/perfilUsuario.html";
+                    }
+                }
+                else
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Verifique usuario y contraseña'
+                    });
+            });
         }
     });
-})
+});
