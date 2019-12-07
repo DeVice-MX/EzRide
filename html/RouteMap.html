@@ -19,7 +19,9 @@
     <!-- Fuente Monserrat -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css"
+        rel="stylesheet">
     <!-- CSS -->
     <!-- <link rel="stylesheet" href="css/general.css"> -->
     <link rel="stylesheet" href="../css/RouteMap.css">
@@ -35,7 +37,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Generar Viaje</h5>
+                    <h5 id="mdTitle" class="modal-title">Generar Viaje</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -46,9 +48,9 @@
                             <label>Origen</label>
                             <button type="button" class="form-control controls" id="txtOrigenTrigger"
                                 placeholder="Mi ubicacion actual"> Mi ubicacion actual </button>
-                            <div id = "divTextOrigen">
-                            <input type="text" class="form-control controls" id="txtOrigen" hidden="true"
-                                placeholder="Mi ubicacion actual">
+                            <div id="divTextOrigen">
+                                <input type="text" class="form-control controls" id="txtOrigen" hidden="true"
+                                    placeholder="Mi ubicacion actual">
                             </div>
 
                             <label>Destino</label>
@@ -64,17 +66,25 @@
                             <input type="text" class="form-control controls" id="horaSalida"
                                 placeholder="Dentro de 10 minutos">
 
-                            <label>Lugares disponibles</label>
-                            <input type="number" class="form-control controls" id="numPasajeros" placeholder="3">
+                            <span id='spanPasajeros'>
+                                <label>Lugares disponibles</label>
+                                <input type="number" class="form-control controls" id="numPasajeros" placeholder="3">
+                            </span>
 
-                            <label>Tarifa por persona</label>
-                            <input type="text" class="form-control controls" id="tarifaPersona"
-                                placeholder="Estimado de gasolina / num de pasajeros">
+                            <span id="spanTarifa">
+                                <label>Tarifa por persona</label>
+                                <input type="text" class="form-control controls" id="tarifaPersona"
+                                    placeholder="Estimado de gasolina / num de pasajeros">
+                            </span>
 
-                            <!-- <small id="emailHelp" class="form-text text-muted">Elige un punto de llegada
-                                else.</small> -->
+                            <span id="spanAgendar">
+                                <input type="checkbox" id="chkAgendar"> Agendar Viaje
+                            </span>
                         </div>
                     </form>
+                    <div id="sugerenciasViaje">
+                        <h5 class="modal-title">Generar Viaje</h5>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="btnSaveViaje" class="btn btn-primary">Publicar Viaje</button>
@@ -110,6 +120,7 @@
     <script src="/js/helper.js"></script>
     <script src="/js/viaje.js"></script>
     <script src="/js/RouteMap.js"></script>
+    <script src="/js/gets.js"></script>
 </body>
 
 </html>

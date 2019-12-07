@@ -35,7 +35,7 @@ $(function () {
 
     $('#btnDestinoTrigger').on('click', fnTriggerTextDestino);
 
-    $('#btnSaveViaje').on('click', saveViaje);
+    $('#btnSaveViaje').on('click', fnSaveViaje);
 
 });
 
@@ -79,6 +79,7 @@ var fnTriggerTextDestino = function () {
 }
 
 function centerMap(lat, long, idBtn) {
+    locationRio = {lat: lat, lng: long};
     map.setCenter(new google.maps.LatLng(lat, long));
     marker = new google.maps.Marker({
         position: locationRio,
@@ -87,8 +88,55 @@ function centerMap(lat, long, idBtn) {
     });
 }
 
+function cambiarModal(Tipo) {
+    if(Tipo == "Buscar")
+    {
+        $('#mdTitle').html('Buscar Viaje');
+        $('#spanTarifa').attr('hidden', true);
+        $('#spanPasajeros').attr('hidden', true);
+    }
+    else if(Tipo == "Generar")
+    {
+        $('#mdTitle').html('Generar Viaje');
+        $('#spanAgendar').attr('hidden',true);
+        $('#sugerenciasViaje').attr('hidden',true);
+    }
+    $('#mdGeneraViaje').modal('show');
+}
+
 var fnSaveViaje = function () {
     jParams = {
-
+        //"id": 1,
+        "idUsuario": 4,
+        "origen": {
+            "latitud": $('#txtOrigenTrigger').attr('lat'),
+            "longitud": $('#txtOrigenTrigger').attr('lng'),
+        },
+        "destino": {
+            "latitud": $('#btnDestinoTrigger').attr('lat'),
+            "longitud": $('#btnDestinoTrigger').attr('lng'),
+        },
+        "pasajerosEnCola": [
+            {
+                "idPasajero": 2
+            }
+        ],
+        "pasajerosEnRuta": [
+            {
+                "idPasajero": 1
+            },
+            {
+                "idPasajero": 2
+            }
+        ],
+        "status": "PENDIENTE",
+        "t_Salida": $('#fechaSalida').val(),
+        "h_Salida" : $('#horaSalida').val(),
+        "t_Llegada": "2019-12-17T08:25:43.511Z",
+        "t_LlegadaEstimada": "2019-12-17T08:25:43.511Z",
+        "t_Alta": "2012-04-23T18:25:43.511Z",
+        "tarifa": $('#tarifaPersona').val()
     };
+
+    saveViaje(jParams);
 }
