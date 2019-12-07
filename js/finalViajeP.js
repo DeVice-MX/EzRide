@@ -12,7 +12,7 @@ var fnCalificaViaje = function(){
     const idViaje = params.get("idViaje");
 
     editPuntajeUsuario({idViaje : idViaje,puntaje : puntaje}).then(data=>{
-        window.location.href = "/html/menu.html";
+        window.location.href = "/html/perfil.html";
     });
 }
 
