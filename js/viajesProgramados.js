@@ -1,6 +1,13 @@
-
+$(function(){
+initMenu();
+loadViajesProgramados();
+});
 
 //magia de Zazil
+
+function loadViajesProgramados(){
+
+}
 
 
 let html = `<div class="card">
