@@ -27,7 +27,7 @@ async function retrasarViaje(jParams){
         origen : viaje.origen,
         destino : viaje.destino,
         pasajerosEnCola : viaje.pasajerosEnCola,
-        pasajeroEnRuta : viaje.pasajerosEnRuta,
+        pasajerosEnRuta : viaje.pasajerosEnRuta,
         status : 'RETRASO', //atributo que se edita
         t_Salida : viaje.t_Salida,
         t_Llegada : viaje.t_Llegada,
@@ -80,8 +80,48 @@ async function cancelarViaje(jParams){
         origen : viaje.origen,
         destino : viaje.destino,
         pasajerosEnCola : viaje.pasajerosEnCola,
-        pasajeroEnRuta : viaje.pasajerosEnRuta,
+        pasajerosEnRuta : viaje.pasajerosEnRuta,
         status : 'CANCELADO', //atributo que se edita
+        t_Salida : viaje.t_Salida,
+        t_Llegada : viaje.t_Llegada,
+        t_Alta : viaje.t_Alta,
+        tarifa : viaje.tarifa
+    };
+    return REQUEST(`${routeApi}Viaje/${jParams.idViaje}`,'PUT',editJson);
+}
+
+async function agregarPasajeroACola(jParams){
+    let viaje = await REQUEST(`${routeApi}Viaje/${jParams.idViaje}`);
+    let pasajeroEnColaNuevo = viaje.pasajeroEnCola;
+    pasajeroEnColaNuevo.push(jParams.pasajeroEnCola);
+
+    let editJson = {
+        idUsuario : viaje.idUsuario,
+        origen : viaje.origen,
+        destino : viaje.destino,
+        pasajerosEnCola : pasajeroEnColaNuevo, //atributo que se edita
+        pasajerosEnRuta : viaje.pasajerosEnRuta,
+        status : viaje.status, 
+        t_Salida : viaje.t_Salida,
+        t_Llegada : viaje.t_Llegada,
+        t_Alta : viaje.t_Alta,
+        tarifa : viaje.tarifa
+    };
+    return REQUEST(`${routeApi}Viaje/${jParams.idViaje}`,'PUT',editJson);
+}
+
+async function aceptarPasajeroARuta(jParams){
+    let viaje = await REQUEST(`${routeApi}Viaje/${jParams.idViaje}`);
+    let pasajeroEnColaNuevo = viaje.pasajeroEnCola;
+    pasajeroEnColaNuevo.push(jParams.pasajeroEnCola);
+
+    let editJson = {
+        idUsuario : viaje.idUsuario,
+        origen : viaje.origen,
+        destino : viaje.destino,
+        pasajerosEnCola : pasajeroEnColaNuevo, //atributo que se edita
+        pasajerosEnRuta : viaje.pasajerosEnRuta,
+        status : viaje.status, 
         t_Salida : viaje.t_Salida,
         t_Llegada : viaje.t_Llegada,
         t_Alta : viaje.t_Alta,
