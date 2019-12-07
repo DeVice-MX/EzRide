@@ -171,5 +171,6 @@ var fnGetViajes = function () {
                                 </div>
                             </div>`);
         });
+        $('#mdGeneraViaje').modal('hide');
     });
 }
