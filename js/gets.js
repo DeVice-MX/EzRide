@@ -122,15 +122,15 @@ async function agregarPasajeroACola(jParams){
 
 async function aceptarPasajeroARuta(jParams){
     let viaje = await REQUEST(`${routeApi}Viaje/${jParams.idViaje}`);
-    let pasajeroEnColaNuevo = viaje.pasajeroEnCola;
-    pasajeroEnColaNuevo.push(jParams.pasajeroEnCola);
+    let pasajeroEnRutaNuevo = viaje.pasajeroEnRuta;
+    pasajeroEnRutaNuevo.push(jParams.pasajeroEnRuta);
 
     let editJson = {
         idUsuario : viaje.idUsuario,
         origen : viaje.origen,
         destino : viaje.destino,
-        pasajerosEnCola : pasajeroEnColaNuevo, //atributo que se edita
-        pasajerosEnRuta : viaje.pasajerosEnRuta,
+        pasajerosEnCola : viaje.pasajeroEnCola, 
+        pasajerosEnRuta : pasajeroEnRutaNuevo,//atributo que se edita
         status : viaje.status, 
         t_Salida : viaje.t_Salida,
         t_Llegada : viaje.t_Llegada,
