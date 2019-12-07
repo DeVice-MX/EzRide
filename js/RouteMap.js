@@ -132,7 +132,7 @@ var fnSaveViaje = async function () {
         "tarifa": $('#tarifaPersona').val()
     };
 
-    saveViaje(jParams).then(function() {
+    saveViaje(jParams).then(function () {
         Toast.fire({
             icon: 'success',
             title: 'Viaje creado exitosamente'
@@ -141,11 +141,25 @@ var fnSaveViaje = async function () {
     });
 }
 
-var fnGetViajes = function() {
+var fnGetViajes = function () {
     params = `Viaje?status=PENDIENTE`;
 
     getHistorial(params).then(function (resp) {
-        resp = resp.filter(x => x.origen.latitud == $('#txtOrigenTrigger').attr('lat') && x.origen.longitud == $('#txtOrigenTrigger').attr('lng') 
-        && x.destino.latitud == $('#btnDestinoTrigger').attr('lat') && x.destino.longitud == $('#btnDestinoTrigger').attr('lng'));
+        resp = resp.filter(x => x.origen.latitud == $('#txtOrigenTrigger').attr('lat') && x.origen.longitud == $('#txtOrigenTrigger').attr('lng')
+            && x.destino.latitud == $('#btnDestinoTrigger').attr('lat') && x.destino.longitud == $('#btnDestinoTrigger').attr('lng'));
+
+        resp.forEach((viaje, index, array) => {
+            $('#sugerenciasViaje').append(`
+            <div class="card">
+                                <div class="card-header">
+                                    <span class="mb-0">
+                                            Viaje #${index + 1}
+                                            <span>Fecha: ${moment(viaje.t_Alta)}</span>
+                                            <button class="btn btn-primary">Seleccionar
+                                            </button>
+                                    </span>
+                                </div>
+                            </div>`);
+        });
     });
 }
