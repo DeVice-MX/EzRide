@@ -41,7 +41,7 @@ $(function () {
 
     $('#btnFiltros').on('click', fnGetViajes);
 
-    $('.seleccionar').on('click', fnSeleccionarViaje);
+    $(document).on('click', '.seleccionar', fnSeleccionarViaje);
 
     getCookie('tipoUsuario') == "Pasajero" ? cambiarModal("Buscar") : cambiarModal("Generar");
 });
