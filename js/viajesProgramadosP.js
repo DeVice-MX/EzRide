@@ -8,7 +8,7 @@ function loadViajesProgramados() {
         idUsuario: getCookie('idUsuario')
     }
 
-    getViajesProgramadosC(params)
+    getViajesProgramadosP(params)
         .then((data) => {
             let i = 0;
             for (let viaje of data) {
