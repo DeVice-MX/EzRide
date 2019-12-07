@@ -64,6 +64,9 @@
       "pasajeroEnRuta" : [
         {
           "idPasajero" : 1
+        },
+        {
+          "idPasajero" : 2
         }
       ],
       "status" : "ENRUTA",
