@@ -41,8 +41,18 @@ $(function () {
 
     $('#btnFiltros').on('click', fnGetViajes);
 
+    $(document).on('click', '.seleccionar', fnSeleccionarViaje);
+
     getCookie('tipoUsuario') == "Pasajero" ? cambiarModal("Buscar") : cambiarModal("Generar");
 });
+
+var fnSeleccionarViaje = function () {
+    Toast.fire({
+        icon: 'success',
+        title: 'Se te ha asignado lugar en el viaje'
+    });
+    $('#mdGeneraViaje').modal('hide');
+}
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -150,8 +160,10 @@ var fnSaveViaje = async function () {
 var fnGetViajes = function () {
     params = `Viaje?status=PENDIENTE`;
 
+    $('#sugerenciasViaje').html(`<h5 class="modal-title">Viajes disponibles</h5>`);
+
     getHistorial(params).then(function (resp) {
-        resp = resp.filter(x => x.origen.latitud == $('#txtOrigenTrigger').attr('lat') && x.origen.longitud == $('#txtOrigenTrigger').attr('lng')
+        resp = resp.filter(x => x.t_Salida == $('#fechaSalida').val() && x.origen.latitud == $('#txtOrigenTrigger').attr('lat') && x.origen.longitud == $('#txtOrigenTrigger').attr('lng')
             && x.destino.latitud == $('#btnDestinoTrigger').attr('lat') && x.destino.longitud == $('#btnDestinoTrigger').attr('lng'));
 
         resp.forEach((viaje, index, array) => {
@@ -160,8 +172,10 @@ var fnGetViajes = function () {
                                 <div class="card-header">
                                     <span class="mb-0">
                                             Viaje #${index + 1}
-                                            <span>Fecha: ${moment(viaje.t_Alta).format("dddd, MMMM Do YYYY, h:mm:ss a")}</span>
-                                            <button class="btn btn-primary">Seleccionar
+                                            Tarifa $${viaje.tarifa}
+                                            <span>Fecha: ${moment(viaje.t_Salida).format("dddd, MMMM Do YYYY")}</span>
+                                            <span>Hora: ${viaje.h_Salida}</span>
+                                            <button class="btn btn-primary seleccionar">Seleccionar
                                             </button>
                                     </span>
                                 </div>
