@@ -39,7 +39,7 @@ $(function () {
 
     $('#btnSaveViaje').on('click', fnSaveViaje);
 
-    getCookie('TipoUsuario') == "Pasajero" ? cambiarModal("Buscar") : cambiarModal("Generar");
+    getCookie('tipoUsuario') == "Pasajero" ? cambiarModal("Buscar") : cambiarModal("Generar");
 });
 
 function initMap() {
