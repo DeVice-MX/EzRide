@@ -129,3 +129,12 @@ async function aceptarPasajeroARuta(jParams){
     };
     return REQUEST(`${routeApi}Viaje/${jParams.idViaje}`,'PUT',editJson);
 }
+
+function saveAgendaViaje(jParams){
+    return REQUEST(`${routeApi}AgendaViaje`,'POST',jParams);
+}
+
+async function getViajeCoordinates(jParams){
+    let viajes = await REQUEST(`${routeApi}Viaje`);
+    
+}
