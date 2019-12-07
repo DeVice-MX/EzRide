@@ -23,6 +23,9 @@ function loadViajesProgramados() {
                                         Viaje #${i}
                                     </button>
                                     <span>Fecha: ${moment(viaje.t_Alta).format('L')}</span>
+                                    <a class="btn btn-danger" href="/html/finalViajeP.html?idViaje=${viaje.id}">
+                                        Finalizar
+                                    </a>
                                 </span>
                             </div>
                 
