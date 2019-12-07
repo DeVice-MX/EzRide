@@ -140,3 +140,12 @@ var fnSaveViaje = async function () {
         $('#mdGeneraViaje').modal('hide');
     });
 }
+
+var fnGetViajes = function() {
+    params = `Viaje?status=PENDIENTE`;
+
+    getHistorial(params).then(function (resp) {
+        resp = resp.filter(x => x.origen.latitud == $('#txtOrigenTrigger').attr('lat') && x.origen.longitud == $('#txtOrigenTrigger').attr('lng') 
+        && x.destino.latitud == $('#btnDestinoTrigger').attr('lat') && x.destino.longitud == $('#btnDestinoTrigger').attr('lng'));
+    });
+}
