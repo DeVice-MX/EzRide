@@ -55,7 +55,7 @@ var fnSeleccionarViaje = function () {
     aceptarPasajeroARuta(
         {
             "idViaje" : $(this).data('idviaje'),
-            "pasajeroEnRuta" : {"idPasajero" : getCookie('idPasajero')},
+            "pasajeroEnRuta" : {"idPasajero" : getCookie('idUsuario')},
         }
     );
 }
