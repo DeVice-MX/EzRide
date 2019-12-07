@@ -3,28 +3,62 @@ $(function () {
 });
 
 function loadViajes() {
-    getHistorial()
+    let params = `viaje?idUsuaurio=${getCookie("idUsuario")}`;
+
+    if (getCookie("tipoUsuario") == "PASAJERO")
+        params = `viaje?idUsuaurio=${getCookie("idUsuario")}`;
+
+    getHistorial(params)
         .then((data) => {
-            for (let viaje in data) {
+            let i = 0;
+            for (let viaje of data) {
+                i++;
+
                 let html = `<div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            Collapsible Group Item #1
+                                <div class="card-header" id="viaje${i}">
+                                    <span class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true"
+                                            aria-controls="collapse${i}">
+                                            Viaje #${i}
                                         </button>
-                                    </h5>S
+                                        <span>Fecha: ${moment(viaje.t_Alta).format('L')}</span>
+                                    </span>
                                 </div>
                     
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div id="collapse${i}" class="collapse" aria-labelledby="viaje${i}" data-parent="#accordionViajes">
                                     <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                                        wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                        eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                        assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                                        labore sustainable VHS.
+                                        <div class="row">
+                                            <div class="col">
+                                                <i class="far fa-money-bill-alt"></i>
+                                                <span class="font-weight-bold">Tarifa:</span> $${viaje.tarifa}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                            <i class="far fa-clock"></i>
+                                                <span class="font-weight-bold">Duracion:</span> ${moment(viaje.t_Salida).diff(viaje.t_Llegada, 'minutes')} minutos
+                                            </div>
+                                        </div>  
+                                        <div class="row">
+                                            <div class="col">
+                                                <i class="fas fa-users"></i>
+                                                <span class="font-weight-bold">Pasajeros:</span> ${viaje.pasajerosEnRuta.length}
+                                            </div>
+                                        </div>                                      
+                                        <div class="row">
+                                            <div class="col">
+                                                <i class="fas fa-map-marked-alt"></i>
+                                                <span class="font-weight-bold">Origen:</span>
+                                            </div>
+                                            <iframe class="iframe" src="https://maps.google.com/?ll=${viaje.origen.longitud},${viaje.origen.latitud}&z=10&t=m&output=embed" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <i class="fas fa-map-marked-alt"></i>
+                                                <span class="font-weight-bold">Destino:</span>
+                                            </div>
+                                            <iframe class="iframe" src="https://maps.google.com/?ll=${viaje.destino.longitud},${viaje.destino.latitud}&z=10&t=m&output=embed" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                        </div>
                                     </div>
                                 </div>
                             </div>`;

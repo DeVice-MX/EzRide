@@ -36,3 +36,8 @@ body{
 .ec-stars-wrapper > a:hover ~ a {
 	color: #888;
 }
+
+.sweet-alert 
+{
+   background-color: #2f2f2f96;
+}
