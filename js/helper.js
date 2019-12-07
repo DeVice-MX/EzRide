@@ -1,6 +1,6 @@
 'use strict'
 const routeApi = 'http://localhost:3000/';
-/*GETS-----------------------------------------*/
+
 async function REQUEST(url, method, jParams) {
     let options = {
         method: method
