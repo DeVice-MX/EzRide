@@ -163,7 +163,8 @@ var fnGetViajes = function () {
                                     <span class="mb-0">
                                             Viaje #${index + 1}
                                             Tarifa $${viaje.tarifa}
-                                            <span>Fecha: ${moment(viaje.t_Salida + viaje.h_Salida).format("dddd, MMMM Do YYYY, h:mm:ss a")}</span>
+                                            <span>Fecha: ${moment(viaje.t_Salida).format("dddd, MMMM Do YYYY")}</span>
+                                            <span>Hora: ${viaje.h_Salida}</span>
                                             <button class="btn btn-primary">Seleccionar
                                             </button>
                                     </span>
