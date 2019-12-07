@@ -52,6 +52,12 @@ var fnSeleccionarViaje = function () {
         title: 'Se te ha asignado lugar en el viaje'
     });
     $('#mdGeneraViaje').modal('hide');
+    aceptarPasajeroARuta(
+        {
+            "idViaje" : $(this).data('idviaje'),
+            "pasajeroEnRuta" : {"idPasajero" : getCookie('idPasajero')},
+        }
+    );
 }
 
 function initMap() {
@@ -175,7 +181,7 @@ var fnGetViajes = function () {
                                             Tarifa $${viaje.tarifa}
                                             <span>Fecha: ${moment(viaje.t_Salida).format("dddd, MMMM Do YYYY")}</span>
                                             <span>Hora: ${viaje.h_Salida}</span>
-                                            <button class="btn btn-primary seleccionar">Seleccionar
+                                            <button class="btn btn-primary seleccionar" data-idviaje = "${viaje.id}">Seleccionar
                                             </button>
                                     </span>
                                 </div>
