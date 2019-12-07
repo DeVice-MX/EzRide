@@ -1,4 +1,5 @@
 $(function () {
+    initMenu();
     loadViajes();
 });
 
@@ -12,7 +13,7 @@ function loadViajes() {
         .then((data) => {
             let i = 0;
             for (let viaje of data) {
-                if (getCookie("tipoUsuario") == "Pasajero" && viaje.pasajerosEnRuta.includes(getCookie("idUsuario"))) {
+                if (getCookie("tipoUsuario") == "Conductor" || (getCookie("tipoUsuario") == "Pasajero" && viaje.pasajerosEnRuta.includes(getCookie("idUsuario")))) {
                     i++;
 
                     let html = `<div class="card">
