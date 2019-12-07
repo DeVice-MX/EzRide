@@ -8,16 +8,11 @@ function loadViajes() {
     if (getCookie("tipoUsuario") == "PASAJERO")
         params = `viaje?idUsuaurio=${getCookie("idUsuario")}`;
 
-    getHistorial()
+    getHistorial(params)
         .then((data) => {
             let i = 0;
             for (let viaje of data) {
                 i++;
-
-                let spanLed = `<span class="parpadea text"><strong>•</strong>`
-                if(viaje.status == "ENRUTA"){
-
-                }
 
                 let html = `<div class="card">
                                 <div class="card-header" id="viaje${i}">
@@ -47,7 +42,7 @@ function loadViajes() {
                                         <div class="row">
                                             <div class="col">
                                                 <i class="fas fa-users"></i>
-                                                <span class="font-weight-bold">Pasajeros:</span> ${viaje.pasajeroEnRuta.length}
+                                                <span class="font-weight-bold">Pasajeros:</span> ${viaje.pasajerosEnRuta.length}
                                             </div>
                                         </div>                                      
                                         <div class="row">
