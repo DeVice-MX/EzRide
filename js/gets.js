@@ -10,7 +10,7 @@ function getViaje(idViaje) {
 
 async function getPasajerosViaje(idViaje) {
     let viaje = await REQUEST(`${routeApi}Viaje/${idViaje}`);
-    let pasajerosEnRuta = viaje.pasajeroEnRuta.map(x => x.idPasajero);
+    let pasajerosEnRuta = viaje.pasajerosEnRuta.map(x=> x.idPasajero);
     let usuarios = await REQUEST(`${routeApi}Usuario/`);
     let pasajeros = usuarios.filter(x => pasajerosEnRuta.includes(x.id));
     return pasajeros;
@@ -23,16 +23,16 @@ function saveViaje(jParams) {
 async function retrasarViaje(jParams) {
     let viaje = await REQUEST(`${routeApi}Viaje/${jParams.idViaje}`);
     let editJson = {
-        idUsuario: viaje.idUsuario,
-        origen: viaje.origen,
-        destino: viaje.destino,
-        pasajerosEnCola: viaje.pasajerosEnCola,
-        pasajeroEnRuta: viaje.pasajerosEnRuta,
-        status: 'RETRASO', //atributo que se edita
-        t_Salida: viaje.t_Salida,
-        t_Llegada: viaje.t_Llegada,
-        t_Alta: viaje.t_Alta,
-        tarifa: viaje.tarifa
+        idUsuario : viaje.idUsuario,
+        origen : viaje.origen,
+        destino : viaje.destino,
+        pasajerosEnCola : viaje.pasajerosEnCola,
+        pasajerosEnRuta : viaje.pasajerosEnRuta,
+        status : 'RETRASO', //atributo que se edita
+        t_Salida : viaje.t_Salida,
+        t_Llegada : viaje.t_Llegada,
+        t_Alta : viaje.t_Alta,
+        tarifa : viaje.tarifa
     };
     return REQUEST(`${routeApi}Viaje/${jParams.idViaje}`, 'PUT', editJson);
 }
@@ -75,16 +75,65 @@ async function upgradeUsuario(jParams) {
 async function cancelarViaje(jParams) {
     let viaje = await REQUEST(`${routeApi}Viaje/${jParams.idViaje}`);
     let editJson = {
-        idUsuario: viaje.idUsuario,
-        origen: viaje.origen,
-        destino: viaje.destino,
-        pasajerosEnCola: viaje.pasajerosEnCola,
-        pasajeroEnRuta: viaje.pasajerosEnRuta,
-        status: 'CANCELADO', //atributo que se edita
-        t_Salida: viaje.t_Salida,
-        t_Llegada: viaje.t_Llegada,
-        t_Alta: viaje.t_Alta,
-        tarifa: viaje.tarifa
+        idUsuario : viaje.idUsuario,
+        origen : viaje.origen,
+        destino : viaje.destino,
+        pasajerosEnCola : viaje.pasajerosEnCola,
+        pasajerosEnRuta : viaje.pasajerosEnRuta,
+        status : 'CANCELADO', //atributo que se edita
+        t_Salida : viaje.t_Salida,
+        t_Llegada : viaje.t_Llegada,
+        t_Alta : viaje.t_Alta,
+        tarifa : viaje.tarifa
     };
     return REQUEST(`${routeApi}Viaje/${jParams.idViaje}`, 'PUT', editJson);
+}
+
+async function agregarPasajeroACola(jParams){
+    let viaje = await REQUEST(`${routeApi}Viaje/${jParams.idViaje}`);
+    let pasajeroEnColaNuevo = viaje.pasajeroEnCola;
+    pasajeroEnColaNuevo.push(jParams.pasajeroEnCola);
+
+    let editJson = {
+        idUsuario : viaje.idUsuario,
+        origen : viaje.origen,
+        destino : viaje.destino,
+        pasajerosEnCola : pasajeroEnColaNuevo, //atributo que se edita
+        pasajerosEnRuta : viaje.pasajerosEnRuta,
+        status : viaje.status, 
+        t_Salida : viaje.t_Salida,
+        t_Llegada : viaje.t_Llegada,
+        t_Alta : viaje.t_Alta,
+        tarifa : viaje.tarifa
+    };
+    return REQUEST(`${routeApi}Viaje/${jParams.idViaje}`,'PUT',editJson);
+}
+
+async function aceptarPasajeroARuta(jParams){
+    let viaje = await REQUEST(`${routeApi}Viaje/${jParams.idViaje}`);
+    let pasajeroEnColaNuevo = viaje.pasajeroEnCola;
+    pasajeroEnColaNuevo.push(jParams.pasajeroEnCola);
+
+    let editJson = {
+        idUsuario : viaje.idUsuario,
+        origen : viaje.origen,
+        destino : viaje.destino,
+        pasajerosEnCola : pasajeroEnColaNuevo, //atributo que se edita
+        pasajerosEnRuta : viaje.pasajerosEnRuta,
+        status : viaje.status, 
+        t_Salida : viaje.t_Salida,
+        t_Llegada : viaje.t_Llegada,
+        t_Alta : viaje.t_Alta,
+        tarifa : viaje.tarifa
+    };
+    return REQUEST(`${routeApi}Viaje/${jParams.idViaje}`,'PUT',editJson);
+}
+
+function saveAgendaViaje(jParams){
+    return REQUEST(`${routeApi}AgendaViaje`,'POST',jParams);
+}
+
+async function getViajeCoordinates(jParams){
+    let viajes = await REQUEST(`${routeApi}Viaje`);
+    
 }
