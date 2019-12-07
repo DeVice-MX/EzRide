@@ -12,7 +12,7 @@ async function getViajesProgramadosP(params) {
 }
 
 async function getViajesProgramadosC(params) {
-    let viajes = await  REQUEST(`${routeApi}Viaje?idUsuario=${params.idUsuario}status=PENDIENTE`, "GET");
+    let viajes = await  REQUEST(`${routeApi}Viaje?idUsuario=${params.idUsuario}&status=PENDIENTE`, "GET");
     return viajes;
 }
 
@@ -27,9 +27,9 @@ function getUsuario(jParams) {
 
 async function getPasajerosViaje(idViaje) {
     let viaje = await REQUEST(`${routeApi}Viaje/${idViaje}`);
-    let pasajerosEnRuta = viaje.pasajerosEnRuta.map(x=> x.idPasajero);
+    let pasajerosEnRuta = viaje.pasajerosEnRuta.map(x=> parseInt(x.idPasajero));
     let usuarios = await REQUEST(`${routeApi}Usuario/`);
-    let pasajeros = usuarios.filter(x => pasajerosEnRuta.includes(x.id));
+    let pasajeros = usuarios.filter(x => pasajerosEnRuta.includes(parseInt(x.id)));
     return pasajeros;
 }
 
