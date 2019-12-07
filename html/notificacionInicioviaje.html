@@ -19,34 +19,40 @@
     <!-- Fuente Monserrat -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="css/general.css">
+
+    <style>
+        .start-trip{
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link text-white" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Pricing</a>
-                    </li>
-                </ul>
-            </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2  class="text-center">¡Inicio de viaje!</h2>
+
+            <br>
+            <h4 class="text-center">Tu viaje esta a punto de comenzar</h4>
         </div>
-        <nav class="navbar navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </nav>
+        <div class="col-4 offset-4">
+            <img src="/images/notificacion.gif" width="150" height="250" alt="imagen de notificación" class="start-trip">
+        </div>
+        <div class="col-3 offset-2">
+            <button class="btn btn-success">¡Comenzar ya!</button>
+        </div>
+        <div class="col-3 offset-2">
+            <button class="btn btn-success">¡Posponer 5 min!</button>
+        </div>
     </div>
+
+
+
+
 
     <!-- jQuery -->
     <script src="/js/jquery-3.4.1.min.js"></script>
@@ -66,7 +72,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.es.min.js"></script>
 
     <script src="/js/helper.js"></script>
-    <script src="/js/viaje.js"></script>
+    <script src="/js/notificacionInicioViaje.js"></script>
 </body>
 
 </html>
