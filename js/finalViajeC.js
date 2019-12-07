@@ -7,10 +7,10 @@ function showPasajeros(){
     //const idViaje = params.get("idViaje");
     const idViaje = 1;
     getPasajerosViaje(idViaje).then(data=>{
-        let html = "";
+        let html = `<ul class="list-group">`;
         data.forEach(function(data){
             let elem = `
-            
+        <li class="list-group-item ">
             <div class="card" style="width: 18rem;" >
                 <!-- <img class="" src="/images/profile.png" alt="Card image cap" width="10" height="100"> -->
                 <div class="card-body">
@@ -59,16 +59,17 @@ function showPasajeros(){
                             </label>
                         </p>
                     </form>
-                    <button type="button" class="btn btn-success form-control">
+                    <button type="button" class="btn btn-success form-control" data-idusuario="${data.id}">
                         <i class="far fa-thumbs-up"></i>
                     </button>
                 </div>
             </div>
-        
+        </li>
         `;
 
             html+=elem;
         });
+        html+=`</ul>`;
         $('#pasajeros').html(html);
     });
     
