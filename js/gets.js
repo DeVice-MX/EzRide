@@ -4,6 +4,13 @@ function getHistorial(params) {
     return REQUEST(`${routeApi}${params}`, "GET");
 }
 
+async function getViajesProgramadosP(params) {
+    let viajes = await  REQUEST(`${routeApi}Viaje?status=PENDIENTE`, "GET");
+    
+    let viajesxPasajero = viajes.filter(x=> x.pasajerosEnRuta.map(p=> parseInt(p.idPasajero)).includes(parseInt(params.idUsuario)));
+    return viajesxPasajero;
+}
+
 function getViaje(idViaje) {
     return REQUEST(`${routeApi}Viaje/${idViaje}`);
 }
