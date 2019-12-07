@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Prueba</title>
+    <title>Perfil Pasajero</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -47,9 +47,48 @@
             </button>
         </nav>
     </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="h1" style="align-content:center; text-align:center">Mi Perfil<br>
+                    <br>
+                    <img src='/images/profile.png' class='imgRedonda' /></div>
+            </div>
+        </div>
+        <br>
+        <div class="row" style="padding: 30px">
+            <label>Nombre:</label>
+            <input type="name" class="form-control" readonly value="Algun Dato"></input>
+            <label><br>Tipo de Usuario:</label>
+            <input type="name" class="form-control" readonly value="Conductor"></input>
+            <label><br>Usuario Desde:</label>
+            <input type="date" class="form-control" readonly>
+            <label><br>Reputacion:</label>
+            <br>
 
-    <div id="accordionViajes">
-        <div id="divHistorial"></div>
+            <div class="row" style="padding-left: 50px">
+                <div class="ec-stars-wrapper">
+                    <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+                    <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+                    <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+                    <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+                    <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+                </div>
+            </div>
+        </div>
+        <div class="h4" style="align-content:center; text-align:center"><br>Información del Autómovil</div>
+        <div class="row" style="padding: 30px">
+                <label>Marca:</label>
+                <input type="name" class="form-control" readonly value="Mazda"></input>
+                <label><br>Modelo:</label>
+                <input type="name" class="form-control" readonly value="2019"></input>
+                <label><br>Color:</label>
+                <input type="name" class="form-control" readonly value="Rojo">
+                <label><br>Placas:</label>
+                <input type="name" class="form-control" readonly value="VRS-07-19">
+                <br>
+            </div>
     </div>
 
     <!-- jQuery -->
@@ -70,8 +109,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.es.min.js"></script>
 
     <script src="/js/helper.js"></script>
-    <script src="/js/gets.js"></script>
-    <script src="/js//historial.js"></script>
+    <script src="/js/viaje.js"></script>
 </body>
 
 </html>
