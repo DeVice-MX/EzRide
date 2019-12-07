@@ -114,7 +114,32 @@
       "contrasena":  "hola",
       "tipo": "Conductor",
       "puntaje" : 200,
-      "reputacion" : 84.5,
+      "reputacion" : 4,
+      "infoAuto" : {
+        "marca" : "Ford",
+        "modelo" : "Lobo",
+        "annio" : 2019,
+        "placas" : "XXH-00"
+      },
+      "recompensas" : [
+        {
+          "idRecompensa" : 1,
+          "status" : "CANJEADA"
+        },
+        {
+          "idRecompensa" : 2,
+          "status" : "ACTIVA"
+        }
+      ]
+
+    },
+    {
+      "id": 3,
+      "nombreUsuario": "Zazil Ibarra",
+      "contrasena":  "hola",
+      "tipo": "Conductor",
+      "puntaje" : 360,
+      "reputacion" : 7,
       "infoAuto" : {
         "marca" : "Ford",
         "modelo" : "Lobo",
