@@ -41,8 +41,18 @@ $(function () {
 
     $('#btnFiltros').on('click', fnGetViajes);
 
+    $('.seleccionar').on('click', fnSeleccionarViaje);
+
     getCookie('tipoUsuario') == "Pasajero" ? cambiarModal("Buscar") : cambiarModal("Generar");
 });
+
+var fnSeleccionarViaje = function () {
+    Toast.fire({
+        icon: 'success',
+        title: 'Se te ha asignado lugar en el viaje'
+    });
+    $('#mdGeneraViaje').modal('hide');
+}
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -165,12 +175,11 @@ var fnGetViajes = function () {
                                             Tarifa $${viaje.tarifa}
                                             <span>Fecha: ${moment(viaje.t_Salida).format("dddd, MMMM Do YYYY")}</span>
                                             <span>Hora: ${viaje.h_Salida}</span>
-                                            <button class="btn btn-primary">Seleccionar
+                                            <button class="btn btn-primary seleccionar">Seleccionar
                                             </button>
                                     </span>
                                 </div>
                             </div>`);
         });
-        $('#mdGeneraViaje').modal('hide');
     });
 }
