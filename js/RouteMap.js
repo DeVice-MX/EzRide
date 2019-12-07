@@ -150,8 +150,10 @@ var fnSaveViaje = async function () {
 var fnGetViajes = function () {
     params = `Viaje?status=PENDIENTE`;
 
+    $('#sugerenciasViaje').html(`<h5 class="modal-title">Viajes disponibles</h5>`);
+
     getHistorial(params).then(function (resp) {
-        resp = resp.filter(x => x.origen.latitud == $('#txtOrigenTrigger').attr('lat') && x.origen.longitud == $('#txtOrigenTrigger').attr('lng')
+        resp = resp.filter(x => x.t_Salida == $('#fechaSalida').val() && x.origen.latitud == $('#txtOrigenTrigger').attr('lat') && x.origen.longitud == $('#txtOrigenTrigger').attr('lng')
             && x.destino.latitud == $('#btnDestinoTrigger').attr('lat') && x.destino.longitud == $('#btnDestinoTrigger').attr('lng'));
 
         resp.forEach((viaje, index, array) => {
