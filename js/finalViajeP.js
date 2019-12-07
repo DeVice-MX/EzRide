@@ -1,15 +1,25 @@
+var calificacion = 0;
+var puntaje = 0;
 $(function(){
 
     $(document).on('click','.input-star',fnShowMessage);
+    $(document).on('click','#btnCalifica',fnCalificaViaje);
 
 });
 
-function calificaViaje(){
-    
+var fnCalificaViaje = function(){
+    const params = new URLSearchParams(document.location.search);
+    const idViaje = params.get("idViaje");
+
+    editPuntajeUsuario({idViaje : idViaje,puntaje : puntaje}).then(data=>{
+        window.location.href = "/html/menu.html";
+    });
 }
 
 var fnShowMessage = function(e){
     let value = $(this).val();
+    calificacion = parseInt(value);
+    puntaje = calificacion*20;
     if(value == "1"){
         $('#message').html('<i class="far fa-sad-cry text-center"></i>');
     }
