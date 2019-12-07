@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Prueba</title>
+    <title>Login</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -20,42 +20,48 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="/css/general.css">
-
-    <style>
-        .start-trip{
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
-
-
-    <div class="row">
-        <div class="col-12">
+    <div class="container" style="padding: 30px">
+        <div class="h1" style="text-align: center; align-content: center">
+            <!--Icon and Name EzRide-->
+            EzRide
             <br>
-            <h2  class="text-center">¡Inicio de viaje!</h2>
-
+            <button class="round"><i class="fa fa-user" aria-hidden="true"></i></button>
+        </div>
+        <form id="login" name="login">
+            <label class="form-check-label">Nombre de Usuario</label>
+            <input id="name" name="name" type="email" class="form-control" placeholder="hack" required>
             <br>
-            <h4 class="text-center">Tu viaje esta a punto de comenzar</h4>
+            <label class="form-check-label">Contraseña</label>
+            <input id="password" name="password" type="password" class="form-control" placeholder="Mi Contraseña" required>
+        </form>
+        <br>
+        <div class="row">
+            <div class="col">
+                <button id="btn-submitLogin" type="button" class="btn btn-success btn-block">Iniciar Sesion</button>
+            </div>
         </div>
-        <div class="col-4 offset-4">
-            <img src="/images/notificacion.gif" width="150" height="250" alt="imagen de notificación" class="start-trip">
+        <br>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-primary btn-block" href="signIn.html" role="button"
+                    aria-expanded="false">Registrarse</a>
+            </div>
         </div>
-        <div class="col-3 offset-2">
-            <button class="btn btn-success">¡Comenzar ya!</button>
-        </div>
-        <div class="col-3 offset-2">
-            <button class="btn btn-success">¡Posponer 5 min!</button>
+        <br>
+        <div class="row" style="padding-left: 20px">
+            <a href="" style="text-align: center">Olvide mi Contraseña</a>
         </div>
     </div>
 
-
-
-
-
     <!-- jQuery -->
     <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="lib/jquery1.5.2.js"></script>
+    <script src="lib/jquery.validate.js"></script>
+    <script src="lib/myjs.js"></script>
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
@@ -71,8 +77,9 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.es.min.js"></script>
 
-    <script src="/js/helper.js"></script>
-    <script src="/js/notificacionInicioViaje.js"></script>
+    <script src="/js/viaje.js"></script>
+    <script src="/js/login.js"></script>
+
 </body>
 
 </html>

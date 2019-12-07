@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign In</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Datepicker -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+    <!-- Fuente Monserrat -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+
+    <div class="container" style="padding: 30px">
+        <div class="h1" style="text-align: center; align-content: center">
+            <!--Icon and Name EzRide-->
+            EzRide
+            <br>
+            <button class="round"><i class="fa fa-user" aria-hidden="true"></i></button>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">Nombre Completo</label>
+                <input type="email" class="form-control" placeholder="Ej. Osvaldo Vazquez Contreras">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">Email</label>
+                <input type="email" class="form-control" placeholder="alguien@gmail.com">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">Crear Contraseña</label>
+                <input type="email" class="form-control" placeholder="Ingrese su contraseña">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">Confirmar Contraseña</label>
+                <input type="email" class="form-control" placeholder="Vuelva a escribir la contraseña">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <label class="form-check-label">Nombre de Usuario</label>
+                <input type="email" class="form-control" placeholder="hack">
+            </div>
+        </div>
+        <br>
+        <div style="text-align: center; align-content: center">
+            <div class="col">
+                <input type="checkbox" class="form-check-input" data-toggle="collapse" href="#collapse-Alta-Conductor"
+                    role="button">
+                <label class="form-check-label" for="collapse-Alta-Conductor">Soy Conductor</label>
+            </div>
+        </div>
+        <br>
+        <!--Registro como conductor vehiculo-->
+        <div class="collapse" id="collapse-Alta-Conductor">
+            <div class="h4" style="text-align: center; align-content: center">
+                Información sobre mi auto
+                <br>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="form-check-label">Marca</label>
+                    <input type="email" class="form-control" placeholder="Ej. Mazda">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="form-check-label">Modelo</label>
+                    <input type="email" class="form-control" placeholder="2019">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="form-check-label">Placas</label>
+                    <input type="email" class="form-control" placeholder="VRS-07-19">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="form-check-label">Color</label>
+                    <input type="email" class="form-control" placeholder="Rojo">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <br>
+            <div class="col">
+                <button type="button" class="btn btn-primary btn-block">Registrarse</button>
+            </div>
+        </div>
+
+
+
+        <!-- jQuery -->
+        <script src="/js/jquery-3.4.1.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <!-- moment js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+        <!-- Sweetalert -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.0.3/dist/sweetalert2.all.min.js"></script>
+        <!-- Datepicker -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js">
+        </script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.es.min.js"></script>
+
+        <script src="/js/helper.js"></script>
+        <script src="/js/viaje.js"></script>
+</body>
+
+</html>

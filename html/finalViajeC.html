@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Prueba</title>
+    <title>Finalilzación Viaje</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -22,32 +22,70 @@
     <link rel="stylesheet" href="/css/general.css">
 
     <style>
-        .start-trip{
+
+        .reset {
+            all: initial;
+            
+        }
+
+        .mb-5{
+            margin-bottom: 50px;
+        }
+
+        .label-star{
+            color:gray;
+        }
+
+        .label-star:hover{color:orange;}
+        .label-star:hover ~ label{color:orange;}
+
+        .input-star{
+            display: none;
+        }
+
+        .input-star:checked ~ label{color:orange;}
+
+        .clasificacion{
+            direction: rtl;/* right to left */
+            unicode-bidi: bidi-override;/* bidi de bidireccional */
+        }
+
+        .form-star{
+            width: 250px;
+            margin: 0 auto;
+            height: 50px;
+        }
+
+        .form-star p{
             text-align: center;
+        }
+
+        .btn-center{
+            text-align: center;
+        }
+
+        .form-star label{
+            font-size: 20px;
         }
     </style>
 </head>
 
 <body>
 
-
     <div class="row">
-        <div class="col-12">
+        
+        <div class="col-12 mb-5">
             <br>
-            <h2  class="text-center">¡Inicio de viaje!</h2>
+            <h1  class="text-center">Tu viaje ha finalizado</h1>
 
             <br>
-            <h4 class="text-center">Tu viaje esta a punto de comenzar</h4>
+            <h3 class="text-center">Evalua a tus pasajeros</h3>
         </div>
-        <div class="col-4 offset-4">
-            <img src="/images/notificacion.gif" width="150" height="250" alt="imagen de notificación" class="start-trip">
+        <!-- Iteracion -->
+        <div id="pasajeros" class=" col-12 d-flex justify-content-center">
+
         </div>
-        <div class="col-3 offset-2">
-            <button class="btn btn-success">¡Comenzar ya!</button>
-        </div>
-        <div class="col-3 offset-2">
-            <button class="btn btn-success">¡Posponer 5 min!</button>
-        </div>
+        
     </div>
 
 
@@ -72,7 +110,8 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.es.min.js"></script>
 
     <script src="/js/helper.js"></script>
-    <script src="/js/notificacionInicioViaje.js"></script>
+    <script src="/js/gets.js"></script>
+    <script src="/js/finalViajeC.js"></script>
 </body>
 
 </html>
