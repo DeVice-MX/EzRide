@@ -1,21 +1,134 @@
 {
-  "posts": [
+  "Recompensa": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "descripcion": "Car wash",
+      "tipo" : "DESCUENTO",
+      "puntos": "4750"
     }
   ],
-  "viaje": [
+  "Mensaje": [
+    {
+      "id": 1,
+      "idUsuario" : 1,
+      "idMensajeHilo" : null,
+      "texto" : "Hola soy el usuario del viaje",
+      "t_alta" :"2012-04-23T18:25:43.511Z"
+    }
+  ],
+  "Chat": [
+    {
+      "id": 1,
+      "idViaje" : 1,
+      "mensajes" : [
+        {
+          "idMensaje" : 1
+        }
+      ]
+    }
+  ],
+  "AgendaViaje": [
     {
       "id": 5,
-      "body": "viaje cinco",
-      "postId": 1
+      "idUsuario" : 2,
+      "origen" : {
+        "latitud" : 22.116647,
+        "longitud" : -101.024898
+      },
+      "destino" : {
+        "latitud" : 22.124205,
+        "longitud" : -101.044148
+      },
+      "t_Alta" : "2012-04-23T18:25:43.511Z",
+      "t_Salida" :"2019-12-17T08:25:43.511Z"
+
+    }
+  ],
+  "Viaje": [
+    {
+      "id": 1,
+      "idUsuario": 1,
+      "origen" : {
+        "latitud" : 22.116647,
+        "longitud" : -101.024898
+      },
+      "destino" : {
+        "latitud" : 22.124205,
+        "longitud" : -101.044148
+      },
+      "pasajerosEnCola" : [
+        {
+          "idPasajero" : 2
+        }
+      ],
+      "pasajeroEnRuta" : [
+        {
+          "idPasajero" : 1
+        }
+      ],
+      "status" : "ENRUTA",
+      "t_Salida" : "2019-12-17T08:25:43.511Z",
+      "t_Llegada" : "2019-12-17T08:25:43.511Z",
+      "t_LlegadaEstimada" : "2019-12-17T08:25:43.511Z",
+      "t_Alta" : "2012-04-23T18:25:43.511Z",
+      "tarifa" : 10
+
     },
     {
       "id": 2,
-      "body": "viaje dos",
-      "postId": 1
+      "idUsuario": 1,
+      "origen" : {
+        "latitud" : 22.116647,
+        "longitud" : -101.024898
+      },
+      "destino" : {
+        "latitud" : 22.124205,
+        "longitud" : -101.044148
+      },
+      "pasajerosEnCola" : [
+        {
+          "idPasajero" : 2
+        }
+      ],
+      "pasajeroEnRuta" : [
+        {
+          "idPasajero" : 1
+        }
+      ],
+      "status" : "POR SALIR",
+      "t_Salida" : "2019-12-17T08:25:43.511Z",
+      "t_Llegada" : "2019-12-17T08:25:43.511Z",
+      "t_LlegadaEstimada" : "2019-12-17T08:25:43.511Z",
+      "t_Alta" : "2012-04-23T18:25:43.511Z",
+      "tarifa" : 10
+
+    }
+  ],
+  "Usuario": [
+    {
+      "id": 1,
+      "nombreUsuario": "Esau Alvarez",
+      "contrasena":  "hola",
+      "tipo": "Conductor",
+      "puntaje" : 200,
+      "reputacion" : 84.5,
+      "infoAuto" : {
+        "marca" : "Ford",
+        "modelo" : "Lobo",
+        "annio" : 2019,
+        "placas" : "XXH-00"
+      },
+      "recompensas" : [
+        {
+          "idRecompensa" : 1,
+          "status" : "CANJEADA"
+        },
+        {
+          "idRecompensa" : 2,
+          "status" : "ACTIVA"
+        }
+      ]
+
     }
   ],
   "profile": {
