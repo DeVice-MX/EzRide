@@ -3,9 +3,9 @@ $(function(){
 });
 
 function showPasajeros(){
-    //const params = new URLSearchParams(document.location.search);
-    //const idViaje = params.get("idViaje");
-    const idViaje = 1;
+    const params = new URLSearchParams(document.location.search);
+    const idViaje = params.get("idViaje");
+    //const idViaje = 1;
     getPasajerosViaje(idViaje).then(data=>{
         let html = `<ul class="list-group">`;
         data.forEach(function(data){
