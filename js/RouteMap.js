@@ -105,7 +105,7 @@ function cambiarModal(Tipo) {
     $('#mdGeneraViaje').modal('show');
 }
 
-var fnSaveViaje = function () {
+var fnSaveViaje = async function () {
     jParams = {
         //"id": 1,
         "idUsuario": 4,
@@ -139,5 +139,6 @@ var fnSaveViaje = function () {
         "tarifa": $('#tarifaPersona').val()
     };
 
-    saveViaje(jParams);
+    await saveViaje(jParams);
+    $('#mdGeneraViaje').modal('hide');
 }
