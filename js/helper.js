@@ -1,5 +1,5 @@
 'use strict'
-const routeApi = 'http://localhost:3000/';
+const routeApi = 'https://ezride-db.herokuapp.com/';
 
 async function REQUEST(url, method, jParams) {
     let options = {
