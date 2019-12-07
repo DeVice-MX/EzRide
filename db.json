@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "viaje": [
+    {
+      "id": 5,
+      "body": "viaje cinco",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "viaje dos",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

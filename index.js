@@ -6,20 +6,6 @@ const config = require('./config');
 
 
 
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = process.env.DATABASE;
-
-// MongoClient.connect(uri, function(err, db) {
-//   db.close();
-// });
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
-
-
 mongoose.connect(config.db, { useNewUrlParser: true })
 .then((res) => {
 	console.log("Mongo connected!");
