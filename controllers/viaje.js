@@ -21,7 +21,13 @@ async function REQUEST(url, method, jParams) {
     }
 }
 
-function getAllViajes(jParams){
+function showViajes(){
+    getViajes().then(function(data){
+        console.log(data);
+    });
+}
+
+function getViajes(){
     let hola = 0;
-    return REQUEST(`${routeApi}Viaje?${$.param(jParams)}`);
+    return REQUEST(`${routeApi}Viaje`);
 }
