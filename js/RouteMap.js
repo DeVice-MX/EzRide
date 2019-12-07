@@ -142,11 +142,9 @@ var fnSaveViaje = async function () {
 }
 
 var fnGetViajes = function() {
-    jParams = {
-        "status": "PENDIENTE"
-    }
+    params = `Viaje?status=PENDIENTE`;
 
-    getHistorial(jParams).then(function (resp) {
+    getHistorial(params).then(function (resp) {
         resp = resp.filter(x => x.origen.latitud == $('#txtOrigenTrigger').attr('lat') && x.origen.longitud == $('#txtOrigenTrigger').attr('lng') 
         && x.destino.latitud == $('#btnDestinoTrigger').attr('lat') && x.destino.longitud == $('#btnDestinoTrigger').attr('lng'));
     });
