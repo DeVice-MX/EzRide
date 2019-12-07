@@ -54,3 +54,16 @@ const Toast = Swal.mixin({
         toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
 });
+
+function initMenu() {
+    if (getCookie("tipoUsuario") == "Conductor") {
+        $("a[data-name='perfil']").attr("href", "/html/perfilConductor.html");
+        $("a[data-name='viaje']").attr("href", "/html/RouteMap.html");
+
+    }
+    else {
+        $("a[data-name='perfil']").attr("href", "/html/perfilPasajero.html");
+        $("a[data-name='viaje']").attr("href", "/html/RouteMap.html");
+
+    }
+}

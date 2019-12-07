@@ -3,18 +3,19 @@ $(function () {
 });
 
 function loadViajes() {
-    let params = `viaje?idUsuaurio=${getCookie("idUsuario")}`;
+    let params = ``;
 
-    if (getCookie("tipoUsuario") == "PASAJERO")
-        params = `viaje?idUsuaurio=${getCookie("idUsuario")}`;
+    if (getCookie("tipoUsuario") == "Conductor")
+        params = `Viaje?idUsuaurio=${getCookie("idUsuario")}`;
 
     getHistorial(params)
         .then((data) => {
             let i = 0;
             for (let viaje of data) {
-                i++;
+                if (getCookie("tipoUsuario") == "Pasajero" && viaje.pasajerosEnRuta.includes(getCookie("idUsuario"))) {
+                    i++;
 
-                let html = `<div class="card">
+                    let html = `<div class="card">
                                 <div class="card-header" id="viaje${i}">
                                     <span class="mb-0">
                                         <button class="btn btn-link" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true"
@@ -63,7 +64,8 @@ function loadViajes() {
                                 </div>
                             </div>`;
 
-                $("#divHistorial").append(html);
+                    $("#divHistorial").append(html);
+                }
             }
         });
 }
