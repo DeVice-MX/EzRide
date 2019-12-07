@@ -106,9 +106,11 @@ function cambiarModal(Tipo) {
 }
 
 var fnSaveViaje = async function () {
+    var date = new Date;
+    date.setMinutes(date.getMinutes() + 18);
     jParams = {
         //"id": 1,
-        "idUsuario": 4,
+        "idUsuario": getCookie('idUsuario'),
         "origen": {
             "latitud": $('#txtOrigenTrigger').attr('lat'),
             "longitud": $('#txtOrigenTrigger').attr('lng'),
@@ -118,24 +120,15 @@ var fnSaveViaje = async function () {
             "longitud": $('#btnDestinoTrigger').attr('lng'),
         },
         "pasajerosEnCola": [
-            {
-                "idPasajero": 2
-            }
         ],
         "pasajerosEnRuta": [
-            {
-                "idPasajero": 1
-            },
-            {
-                "idPasajero": 2
-            }
         ],
         "status": "PENDIENTE",
         "t_Salida": $('#fechaSalida').val(),
         "h_Salida": $('#horaSalida').val(),
-        "t_Llegada": "2019-12-17T08:25:43.511Z",
-        "t_LlegadaEstimada": "2019-12-17T08:25:43.511Z",
-        "t_Alta": "2012-04-23T18:25:43.511Z",
+        "t_Llegada": "",
+        "t_LlegadaEstimada": date,
+        "t_Alta": new Date(),
         "tarifa": $('#tarifaPersona').val()
     };
 
