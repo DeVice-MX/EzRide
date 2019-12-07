@@ -132,6 +132,11 @@ var fnSaveViaje = async function () {
         "tarifa": $('#tarifaPersona').val()
     };
 
-    await saveViaje(jParams);
-    $('#mdGeneraViaje').modal('hide');
+    saveViaje(jParams).then(function() {
+        Toast.fire({
+            icon: 'success',
+            title: 'Viaje creado exitosamente'
+        });
+        $('#mdGeneraViaje').modal('hide');
+    });
 }
