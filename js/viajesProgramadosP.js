@@ -1,23 +1,21 @@
-$(function(){
-initMenu();
-loadViajesProgramados();
+$(function () {
+    initMenu();
+    loadViajesProgramados();
 });
 
-//magia de Zazil
-
-function loadViajesProgramados(){
+function loadViajesProgramados() {
     let params = {
-        idUsuario : getCookie('idUsuario')
+        idUsuario: getCookie('idUsuario')
     }
 
-    getViajesProgramadosP(params)
-    .then((data) => {
-        let i = 0;
-        for (let viaje of data) {
-            if (getCookie("tipoUsuario") == "Conductor" || (getCookie("tipoUsuario") == "Pasajero" && viaje.pasajerosEnRuta.includes(getCookie("idUsuario")))) {
-                i++;
+    getViajesProgramadosC(params)
+        .then((data) => {
+            let i = 0;
+            for (let viaje of data) {
+                if (getCookie("tipoUsuario") == "Conductor" || (getCookie("tipoUsuario") == "Pasajero" && viaje.pasajerosEnRuta.includes(getCookie("idUsuario")))) {
+                    i++;
 
-                let html = `<div class="card">
+                    let html = `<div class="card">
                             <div class="card-header" id="viaje${i}">
                                 <span class="mb-0">
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true"
@@ -66,8 +64,8 @@ function loadViajesProgramados(){
                             </div>
                         </div>`;
 
-                $("#divViajesProgramados").append(html);
+                    $("#divViajesProgramados").append(html);
+                }
             }
-        }
-    });
+        });
 }

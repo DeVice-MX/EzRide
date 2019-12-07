@@ -62,16 +62,20 @@ function initMenu() {
             .html("Generar viaje")
             .attr("href", "/html/RouteMap.html");
 
+        $("a[data-name='viajes-programados']")
+            .attr("href", "/html/viajesProgramadosC.html");
     }
     else {
         $("a[data-name='perfil']").attr("href", "/html/perfilPasajero.html");
         $("a[data-name='viaje']")
             .html("Buscar viaje")
             .attr("href", "/html/RouteMap.html");
-
+            
+        $("a[data-name='viajes-programados']")
+            .attr("href", "/html/viajesProgramadosP.html");
     }
 
-    $("a[data-name='cerrar-sesion']").click(function (){
+    $("a[data-name='cerrar-sesion']").click(function () {
         window.location = "/html/login.html";
     });
 }

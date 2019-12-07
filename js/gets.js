@@ -11,6 +11,12 @@ async function getViajesProgramadosP(params) {
     return viajesxPasajero;
 }
 
+async function getViajesProgramadosC(params) {
+    let viajes = await  REQUEST(`${routeApi}Viaje?idUsuario=${params.idUsuario}status=PENDIENTE`, "GET");
+    return viajes;
+}
+
+
 function getViaje(idViaje) {
     return REQUEST(`${routeApi}Viaje/${idViaje}`);
 }
