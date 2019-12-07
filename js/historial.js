@@ -7,7 +7,7 @@ function loadViajes() {
     let params = ``;
 
     if (getCookie("tipoUsuario") == "Conductor")
-        params = `Viaje?idUsuario=${getCookie("idUsuario")}`;
+        params = `Viaje?idUsuario=${getCookie("idUsuario")}&status=FINALIZADO`;
 
     getHistorial(params)
         .then((data) => {
