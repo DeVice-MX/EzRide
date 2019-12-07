@@ -39,6 +39,8 @@ $(function () {
 
     $('#btnSaveViaje').on('click', fnSaveViaje);
 
+    $('#btnFiltros').on('click', fnGetViajes);
+
     getCookie('tipoUsuario') == "Pasajero" ? cambiarModal("Buscar") : cambiarModal("Generar");
 });
 
@@ -96,11 +98,15 @@ function cambiarModal(Tipo) {
         $('#mdTitle').html('Buscar Viaje');
         $('#spanTarifa').attr('hidden', true);
         $('#spanPasajeros').attr('hidden', true);
+        $('#btnSaveViaje').attr('hidden', true);
+        $('#btnFiltros').attr('hidden', false);
     }
     else if (Tipo == "Generar") {
         $('#mdTitle').html('Generar Viaje');
         $('#spanAgendar').attr('hidden', true);
         $('#sugerenciasViaje').attr('hidden', true);
+        $('#btnSaveViaje').attr('hidden', false);
+        $('#btnFiltros').attr('hidden', true);
     }
     $('#mdGeneraViaje').modal('show');
 }
