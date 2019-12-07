@@ -3,6 +3,8 @@ var marker;
 var once = false;
 
 $(function () {
+    initMenu();
+
     initMap();
 
     $('#fechaSalida').datepicker().datepicker("setDate", new Date());
@@ -37,6 +39,7 @@ $(function () {
 
     $('#btnSaveViaje').on('click', fnSaveViaje);
 
+    $("#mdGeneraViaje").modal("show");
 });
 
 function initMap() {
@@ -79,7 +82,7 @@ var fnTriggerTextDestino = function () {
 }
 
 function centerMap(lat, long, idBtn) {
-    locationRio = {lat: lat, lng: long};
+    locationRio = { lat: lat, lng: long };
     map.setCenter(new google.maps.LatLng(lat, long));
     marker = new google.maps.Marker({
         position: locationRio,
@@ -89,17 +92,15 @@ function centerMap(lat, long, idBtn) {
 }
 
 function cambiarModal(Tipo) {
-    if(Tipo == "Buscar")
-    {
+    if (Tipo == "Buscar") {
         $('#mdTitle').html('Buscar Viaje');
         $('#spanTarifa').attr('hidden', true);
         $('#spanPasajeros').attr('hidden', true);
     }
-    else if(Tipo == "Generar")
-    {
+    else if (Tipo == "Generar") {
         $('#mdTitle').html('Generar Viaje');
-        $('#spanAgendar').attr('hidden',true);
-        $('#sugerenciasViaje').attr('hidden',true);
+        $('#spanAgendar').attr('hidden', true);
+        $('#sugerenciasViaje').attr('hidden', true);
     }
     $('#mdGeneraViaje').modal('show');
 }
@@ -131,7 +132,7 @@ var fnSaveViaje = function () {
         ],
         "status": "PENDIENTE",
         "t_Salida": $('#fechaSalida').val(),
-        "h_Salida" : $('#horaSalida').val(),
+        "h_Salida": $('#horaSalida').val(),
         "t_Llegada": "2019-12-17T08:25:43.511Z",
         "t_LlegadaEstimada": "2019-12-17T08:25:43.511Z",
         "t_Alta": "2012-04-23T18:25:43.511Z",
