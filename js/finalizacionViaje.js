@@ -4,6 +4,10 @@ $(function(){
 
 });
 
+function calificaViaje(){
+    
+}
+
 var fnShowMessage = function(e){
     let value = $(this).val();
     if(value == "1"){
