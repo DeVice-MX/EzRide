@@ -42,15 +42,29 @@
                     <form>
                         <div class="form-group">
                             <label>Origen</label>
-                            <input type="text" class="form-control controls" id="txtOrigen"
-                                aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                else.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                placeholder="Password">
+                            <button type="button" class="form-control controls"
+                                id="txtOrigenTrigger" placeholder="Mi ubicacion actual"> Mi ubicacion actual </button>
+                            <input type="text" class="form-control controls" 
+                                id="txtOrigen" placeholder="Mi ubicacion actual">
+                            <label>Destino</label>
+                            <input type="text" class="form-control controls" id="txtDestino" placeholder="Destino">
+
+                            <label>Fecha de salida</label>
+                            <input type="text" class="form-control controls" id="fechaSalida" placeholder="Hoy">
+
+                            <label>Hora de salida</label>
+                            <input type="text" class="form-control controls" id="horaSalida"
+                                placeholder="Dentro de 10 minutos">
+
+                            <label>Lugares disponibles</label>
+                            <input type="text" class="form-control controls" id="numPasajeros" placeholder="3">
+
+                            <label>Tarifa por persona</label>
+                            <input type="text" class="form-control controls" id="tarifaPersona"
+                                placeholder="Estimado de gasolina / num de pasajeros">
+
+                            <!-- <small id="emailHelp" class="form-text text-muted">Elige un punto de llegada
+                                else.</small> -->
                         </div>
                     </form>
                 </div>
