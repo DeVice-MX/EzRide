@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Datepicker -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+    <!-- Fuente Monserrat -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <div class="container" style="padding: 30px">
+        <div class="h1" style="text-align: center; align-content: center">
+            <!--Icon and Name EzRide-->
+            EzRide
+            <br>
+            <button class="round"><i class="fa fa-user" aria-hidden="true"></i></button>
+        </div>
+        <form id="login" name="login">
+            <label class="form-check-label">Nombre de Usuario</label>
+            <input id="name" name="name" type="email" class="form-control" placeholder="hack" required>
+            <br>
+            <label class="form-check-label">Contraseña</label>
+            <input id="password" name="password" type="password" class="form-control" placeholder="Mi Contraseña" required>
+        </form>
+        <br>
+        <div class="row">
+            <div class="col">
+                <button id="btn-submitLogin" type="button" class="btn btn-success btn-block">Iniciar Sesion</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-primary btn-block" href="signIn.html" role="button"
+                    aria-expanded="false">Registrarse</a>
+            </div>
+        </div>
+        <br>
+        <div class="row" style="padding-left: 20px">
+            <a href="" style="text-align: center">Olvide mi Contraseña</a>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="lib/jquery1.5.2.js"></script>
+    <script src="lib/jquery.validate.js"></script>
+    <script src="lib/myjs.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- moment js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+    <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.0.3/dist/sweetalert2.all.min.js"></script>
+    <!-- Datepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js">
+    </script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.es.min.js"></script>
+
+    <script src="/js/viaje.js"></script>
+    <script src="/js/login.js"></script>
+
+</body>
+
+</html>
