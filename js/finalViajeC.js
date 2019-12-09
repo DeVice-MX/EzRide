@@ -1,5 +1,7 @@
 $(function(){
     showPasajeros();
+
+    $(document).on('click','.califica',fnCalificaPasajero);
 });
 
 function showPasajeros(){
@@ -59,7 +61,7 @@ function showPasajeros(){
                             </label>
                         </p>
                     </form>
-                    <button type="button" class="btn btn-success form-control" data-idusuario="${data.id}">
+                    <button type="button" class="btn btn-success form-control califica" data-idusuario="${data.id}">
                         <i class="far fa-thumbs-up"></i>
                     </button>
                 </div>
@@ -73,6 +75,11 @@ function showPasajeros(){
         $('#pasajeros').html(html);
     });
     
+}
+
+function fnCalificaPasajero(){
+    let idusuario = $(this).data('idusuario');
+    let hola = 0;
 }
 
 
